@@ -5,3 +5,4 @@ steps to create the developer environment
 - install nodeJS (it installs npm by deafault)
 - install composer (it installs php by default)
 - sync the repository to your local machine
+- to generate the frame of th DB run php artisan migrate command
