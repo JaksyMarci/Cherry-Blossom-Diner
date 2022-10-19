@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Invoices extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'amount',
+        'isPaid',
+        'tableId'
+    ];
+
+    public function tables() {
+        return $this->belongsTo(Tables::class);
+    }
 }
