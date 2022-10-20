@@ -17,7 +17,8 @@ class TablesFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'numberOfSeats' => fake()->numberBetween(1,5),
+            'state' => fake()->numberBetween(0,2)
         ];
     }
 }
