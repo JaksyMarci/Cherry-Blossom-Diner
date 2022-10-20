@@ -1,7 +1,7 @@
 # Cherry Blossom Diner
-##A project for the Tools of Software Projects subject, ELTE IK 2022-2023/1
+## A project for the Tools of Software Projects subject, ELTE IK 2022-2023/1
 
-###Steps to create the developer environment:
+### Steps to create the developer environment:
 
 - Install nodeJS (it installs npm by deafault)
 - Install Composer (it installs php by default)
