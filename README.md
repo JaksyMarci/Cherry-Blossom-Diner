@@ -5,4 +5,14 @@ steps to create the developer environment
 - install nodeJS (it installs npm by deafault)
 - install composer (it installs php by default)
 - sync the repository to your local machine
-- to generate the frame of th DB run php artisan migrate command
+- modify your php.ini configuration file: 
+   * enable fileinfo
+   * enable pdo_sqlite
+- run the following commands:
+   * php artisan key:generate
+   * php artisan migrate
+   * php artisan db:seed
+  
+  
+- running php artisan serve will create a server on localhost:8000, on which you can test the app
+  
