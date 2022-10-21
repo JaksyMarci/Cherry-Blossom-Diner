@@ -11,6 +11,7 @@
    * enable `fileinfo`
    * enable `pdo_sqlite`
 - Run the following commands:
+   * `composer install`
    * `php artisan key:generate`
    * `php artisan migrate`
    * `php artisan db:seed`
