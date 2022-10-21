@@ -15,6 +15,7 @@
    * `php artisan key:generate`
    * `php artisan migrate`
    * `php artisan db:seed`
+   * `npm install && npm run dev`
   
   
 - Running `php artisan serve` will create a server on localhost:8000, on which you can test the app
