@@ -19,4 +19,3 @@
   
   
 - Running `php artisan serve` will create a server on localhost:8000, on which you can test the app
-  
