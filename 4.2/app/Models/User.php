@@ -21,7 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'isAdmin'
+        'is_admin'
     ];
 
     /**
@@ -40,10 +40,10 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'isAdmin' => 'boolean'
+        'is_admin' => 'boolean'
     ];
 
     public function tables() {
-        return $this->belongsToMany(Tables::class);
+        return $this->hasMany(Tables::class);
     }
 }

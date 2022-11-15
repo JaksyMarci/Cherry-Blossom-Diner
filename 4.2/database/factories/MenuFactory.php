@@ -17,9 +17,9 @@ class MenuFactory extends Factory
     public function definition()
     {
         return [
-            'foodName' => fake()->unique()->word(2, true),
-            'foodPrice' => fake()->numberBetween(400, 12000),
-            'foodType' => fake()->numberBetween(0, 5) // soup, vegetarian, poultry, beef, pork, dessert
+            'food_name' => fake()->unique()->word(2, true),
+            'food_price' => fake()->numberBetween(400, 12000),
+            'food_type' => fake()->numberBetween(0, 6) // soup, vegetarian, poultry, beef, pork, dessert, drink
         ];
     }
 }

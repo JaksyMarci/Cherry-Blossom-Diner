@@ -10,8 +10,12 @@ class Menu extends Model
     use HasFactory;
 
     protected $fillable = [
-        'foodName',
-        'foodPrice',
-        'foodType',
+        'food_name',
+        'food_price',
+        'food_type',
     ];
+
+    public function tables() {
+        return $this->belongsToMany(Tables::class)->withPivot('amount');
+    }
 }

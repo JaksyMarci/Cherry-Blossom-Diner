@@ -10,20 +10,21 @@ class Tables extends Model
     use HasFactory;
 
     protected $fillable = [
-        'amount',
-        'isPaid',
+        'bill',
+        'is_paid',
         'password',
+        'state'
     ];
 
     protected $casts = [
-        'isPaid' => 'boolean',
+        'is_paid' => 'boolean',
     ];
-
-    public function invoices() {
-        return $this->hasMany(Invoices::class);
-    }
 
     public function users() {
         return $this->belongsToMany(User::class);
+    }
+
+    public function foods() {
+        return $this->belongsToMany(Menu::class)->withPivot('amount');
     }
 }

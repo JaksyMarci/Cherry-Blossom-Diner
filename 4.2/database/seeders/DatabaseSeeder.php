@@ -4,10 +4,6 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use \App\Models\User;
-use \App\Models\Menu;
-use \App\Models\Tables;
-
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,16 +14,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $users[] = User::factory()->create([
-            'name' => 'Admin',
-            'email' => 'admin@admin.com',
-            'isAdmin' => true
+        $this->call([
+            UserSeeder::class,
+            TablesSeeder::class,
+            MenuSeeder::class,
         ]);
-
-        $users[] = User::factory(5)->create();
-
-        $menuItems = Menu::factory(15)->create();
-
-        $tables = Tables::factory(10)->create();
     }
 }
