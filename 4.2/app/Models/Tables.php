@@ -11,13 +11,7 @@ class Tables extends Model
 
     protected $fillable = [
         'bill',
-        'is_paid',
-        'password',
         'state'
-    ];
-
-    protected $casts = [
-        'is_paid' => 'boolean',
     ];
 
     public function users() {

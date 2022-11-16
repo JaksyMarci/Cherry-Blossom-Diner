@@ -18,7 +18,6 @@ return new class extends Migration
             $table->integer('numberOfSeats');
             $table->enum('state', [0,1,2]); // free, reserved, inUse
             $table->double('bill');
-            $table->boolean('is_paid')->default(false);
             $table->timestamps();
 
             $table->unsignedBigInteger('user_id');
