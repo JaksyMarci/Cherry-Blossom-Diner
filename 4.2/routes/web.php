@@ -13,6 +13,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/*
 Route::get('/', function () {
     return view('login');
+});*/
+
+Route::get('/', function () {
+    if(Auth::check()) {
+        return view('tables');
+    }
+    return redirect()->route('login');
 });
+
+Route::get('/home', function () {
+    return view('tables');
+})->name('tables');
+
+Auth::routes();
+
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
