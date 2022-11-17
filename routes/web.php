@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TableController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,22 +14,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/*
-Route::get('/', function () {
-    return view('login');
-});*/
+Route::middleware('auth')->group(function () {
+    Route::get('/home', function () {
+        return redirect()->route('tables.index');
+    })->name('tables');
 
-Route::get('/', function () {
-    if(Auth::check()) {
-        return view('tables');
-    }
-    return redirect()->route('login');
+    Route::get('/', function () {
+        return redirect()->route('tables.index');
+    })->name('tables');
 });
 
-Route::get('/home', function () {
-    return view('tables');
-})->name('tables');
+Route::resource('tables', TableController::class);
 
-Auth::routes();
+require __DIR__.'/auth.php';
 
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
