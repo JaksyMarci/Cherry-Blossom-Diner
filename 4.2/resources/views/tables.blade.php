@@ -22,6 +22,5 @@
         <a href="#" id="nm1"><span>1</span></a>
         <a href="#" id="nm2"><span>2</span></a>
     </div>
-	@vite('resources/js/tables.js')
 </body>
 </html>
