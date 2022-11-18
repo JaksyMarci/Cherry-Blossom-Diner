@@ -32,8 +32,8 @@ Route::middleware('auth')->group(function () {
         return redirect()->route('tables.index');
     })->name('tables');
 
+    Route::resource('tables', TableController::class);
 });
 
-Route::resource('tables', TableController::class);
 
 require __DIR__.'/auth.php';
