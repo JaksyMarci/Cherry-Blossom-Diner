@@ -4,6 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+
     "content-hash": "edbe8a72bf2f40fd71893aca03ba0d95",
     "packages": [
         {
@@ -6597,6 +6598,7 @@
         },
         {
             "name": "phpunit/phpunit",
+
             "version": "9.5.25",
             "source": {
                 "type": "git",
@@ -6680,6 +6682,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "source": "https://github.com/sebastianbergmann/phpunit/tree/9.5.25"
+
             },
             "funding": [
                 {

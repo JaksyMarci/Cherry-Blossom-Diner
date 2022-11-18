@@ -12,7 +12,6 @@ class TableController extends Controller
         $tables = Tables::all();
         return view('tables', ['tables' => $tables]);
     }
-
     // returns the specified table informations to show
     public function show($id) {
         if(Auth::user()){
