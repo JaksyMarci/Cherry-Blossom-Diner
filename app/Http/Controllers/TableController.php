@@ -8,11 +8,15 @@ use Illuminate\Support\Facades\Auth;
 
 class TableController extends Controller
 {
+    public function index() {
+        $tables = Tables::all();
+        return view('tables', ['tables' => $tables]);
+    }
     // returns the specified table informations to show
     public function show($id) {
         if(Auth::user()){
             $table = Tables::findOrFail($id);
-            return $table->get();
+            return view('menu', ['table' => $table]);
         } else {
             abort(404);
         }

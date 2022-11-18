@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TableController;
+use Illuminate\Support\Facades\Auth;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +17,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('login');
+Route::middleware('auth')->group(function () {
+    Route::get('/home', function () {
+        return redirect()->route('tables.index');
+    })->name('tables');
+
+    Route::get('/login', function () {
+        return redirect()->route('tables.index');
+    })->name('tables');
+
+    Route::get('/', function () {
+        return redirect()->route('tables.index');
+    })->name('tables');
+
+    Route::get('', function () {
+        return redirect()->route('tables.index');
+    })->name('tables');
+
+    Route::resource('tables', TableController::class);
 });
+
+
+require __DIR__.'/auth.php';
+

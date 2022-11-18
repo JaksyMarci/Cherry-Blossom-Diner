@@ -13,9 +13,9 @@
 - Run the following commands:
    * `composer install`
    * `php artisan key:generate`
-   * `php artisan migrate`
-   * `php artisan db:seed`
-   * `npm install && npm run dev`
+   * `php artisan migrate:fresh --seed`
+   * `npm install`
+   * `npm run build`
   
   
 - Running `php artisan serve` will create a server on localhost:8000, on which you can test the app
