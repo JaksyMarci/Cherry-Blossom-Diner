@@ -31,6 +31,6 @@ Route::get('/home', function () {
     return view('tables');
 })->name('tables');
 
-Auth::routes();
+
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

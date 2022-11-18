@@ -5,16 +5,15 @@ export default defineConfig({
     plugins: [
         laravel({
             input: [
-                'resources/sass/app.scss',
+                'resources/css/app.css',
                 'resources/js/app.js',
                 'resources/css/tables.css',
                 'resources/css/index.css',
                 'resources/css/login.css'
             ],
             refresh: true,
-        }),
+        })
     ],
-
     resolve: {
         alias: {
             vue: 'vue/dist/vue.esm-bundler.js',
