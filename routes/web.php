@@ -15,17 +15,22 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::middleware('auth')->group(function () {
-    Route::get('/home', function () {
-        return redirect()->route('tables.index');
-    })->name('tables');
+/*
+Route::get('/', function () {
+    return view('login');
+});*/
 
-    Route::get('/', function () {
-        return redirect()->route('tables.index');
-    })->name('tables');
+Route::get('/', function () {
+    if(Auth::check()) {
+        return view('tables');
+    }
+    return redirect()->route('login');
 });
 
-Route::resource('tables', TableController::class);
+Route::get('/home', function () {
+    return view('tables');
+})->name('tables');
 
-require __DIR__.'/auth.php';
+Auth::routes();
 
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
