@@ -44,6 +44,7 @@ jobs:
         DB_CONNECTION: sqlite
         DB_DATABASE: database/database.sqlite
       run: vendor/bin/phpunit
-    - name: run php-cs-fixer
+    - name: Grant permissions
       run: chmod -R 777 tools/php-cs-fixer
+    - name: run php-cs-fixer
       run: tools/php-cs-fixer/vendor/bin/php-cs-fixer fix .
