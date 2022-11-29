@@ -4,8 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TableController;
 use Illuminate\Support\Facades\Auth;
 
-
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,4 +37,3 @@ Route::middleware('auth')->group(function () {
 
 
 require __DIR__.'/auth.php';
-

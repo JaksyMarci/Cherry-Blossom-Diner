@@ -18,7 +18,6 @@ class loginFeatureTest extends DuskTestCase
      */
     public function test_basic_example()
     {
-
         $this->browse(function ($browser) {
             $browser->visit('/login')
                     ->type('email', 'admin@cbd.hu')
