@@ -17,10 +17,10 @@ class TablesFactory extends Factory
     public function definition()
     {
         return [
-            'numberOfSeats' => fake()->numberBetween(1,6),
+            'numberOfSeats' => fake()->numberBetween(1, 6),
             'state' => 0,
             'bill' => 0,
-            'user_id' => fake()->numberBetween(1,5)
+            'user_id' => fake()->numberBetween(1, 5)
         ];
     }
 }
