@@ -48,3 +48,5 @@ jobs:
       run: chmod -R 777 tools/php-cs-fixer
     - name: run php-cs-fixer
       run: tools/php-cs-fixer/vendor/bin/php-cs-fixer fix -v --config=.php-cs-fixer.dist.php --dry-run --stop-on-violation
+    - name: generate doc
+      run: php artisan scribe:generate
