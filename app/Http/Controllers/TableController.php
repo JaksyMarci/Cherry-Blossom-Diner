@@ -8,14 +8,15 @@ use Illuminate\Support\Facades\Auth;
 
 class TableController extends Controller
 {
-    public function index() {
+    public function index()
+    {
         $tables = Tables::all();
         return view('tables', ['tables' => $tables]);
     }
-
     // returns the specified table informations to show
-    public function show($id) {
-        if(Auth::user()){
+    public function show($id)
+    {
+        if (Auth::user()) {
             $table = Tables::findOrFail($id);
             return view('menu', ['table' => $table]);
         } else {
@@ -24,11 +25,12 @@ class TableController extends Controller
     }
 
     // returns the bill of the specified table
-    public function bill($id) {
-        if(Auth::user()){
+    public function bill($id)
+    {
+        if (Auth::user()) {
             $table = Tables::findOrFail($id);
             $bill = 0;
-            foreach($table->foods as $food) {
+            foreach ($table->foods as $food) {
                 $bill = $food->amount * $food->price;
             }
             $table->bill->update($bill);
@@ -39,33 +41,35 @@ class TableController extends Controller
     }
 
     // sends the form to the update function
-    public function editOrder(Request $request, $id) {
-        if(Auth::user()) {
+    public function editOrder(Request $request, $id)
+    {
+        if (Auth::user()) {
             $table = Tables::findOrFail($id);
             $validated = $request->validate([
                 'amount' => 'required|integer'
             ]);
             $found = false;
             $foundId = 0;
-            // TODO: update every pivot data with the right amount
-            // foreach($table->foods as $food) {
+        // TODO: update every pivot data with the right amount
+        // foreach($table->foods as $food) {
             //     if($request->id == $food->id) {
             //         $found = true;
             //         $foundId = $food->id;
             //     }
-            // }
+        // }
 
-            // if($found) {
+        // if($found) {
             //     $table->foods->find($foundId)->update()
-            // }
+        // }
         } else {
             abort(404);
         }
     }
 
     // after the guest payed, the table become free, and the bill turns to 0
-    public function pay($id) {
-        if(Auth::user()){
+    public function pay($id)
+    {
+        if (Auth::user()) {
             $table = Tables::findOrFail($id);
             $table->update([
                 'bill' => 0,
@@ -78,10 +82,11 @@ class TableController extends Controller
     }
 
     // if the table is free, it will be reserved
-    public function reserve($id) {
-        if(Auth::user()){
+    public function reserve($id)
+    {
+        if (Auth::user()) {
             $table = Tables::findOrFail($id);
-            if($table->state == 0) {
+            if ($table->state == 0) {
                 $table->update([
                     'state' => 0
                 ]);
@@ -96,10 +101,11 @@ class TableController extends Controller
 
     // if the table is free or reserved, it can be set in use state
     // when the guests sit there
-    public function inUse($id) {
-        if(Auth::user()){
+    public function inUse($id)
+    {
+        if (Auth::user()) {
             $table = Tables::findOrFail($id);
-            if($table->state == 0 or $table->state == 1) {
+            if ($table->state == 0 or $table->state == 1) {
                 $table->update([
                     'state' => 2
                 ]);
@@ -113,7 +119,8 @@ class TableController extends Controller
     }
 
     //updates the table
-    public function update(Request $request, $id) {
+    public function update(Request $request, $id)
+    {
         // TODO: request function
     }
 }

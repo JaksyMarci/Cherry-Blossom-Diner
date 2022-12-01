@@ -15,7 +15,8 @@ class Menu extends Model
         'food_type',
     ];
 
-    public function tables() {
+    public function tables()
+    {
         return $this->belongsToMany(Tables::class)->withPivot('amount');
     }
 }

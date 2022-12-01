@@ -20,11 +20,13 @@ class Tables extends Model
         'is_paid' => 'boolean',
     ];
 
-    public function users() {
+    public function users()
+    {
         return $this->belongsToMany(User::class);
     }
 
-    public function foods() {
+    public function foods()
+    {
         return $this->belongsToMany(Menu::class)->withPivot('amount');
     }
 }
