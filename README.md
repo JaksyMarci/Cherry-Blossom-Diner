@@ -15,7 +15,12 @@
    * `php artisan key:generate`
    * `php artisan migrate:fresh --seed`
    * `npm install`
-   * `npm run build`
-  
-  
+   * `npm run build` or `npm run dev` (it runs a development server)
+   
 - Running `php artisan serve` will create a server on localhost:8000, on which you can test the app
+
+- Documentation:
+Our documentation is made with scribe. We run it on the CI after every commit. but with this command you can run it manually:
+   * `php artisan scribe:generate`
+  
+  

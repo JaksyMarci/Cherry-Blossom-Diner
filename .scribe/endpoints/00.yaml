@@ -1,0 +1,128 @@
+name: Endpoints
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/user
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: home
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: |-
+        *HOME PAGE*
+        only authorized user can see it.
+      description: |-
+        after login you end up here.
+        All the tables are visible. You can select the menu by clicking a table
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          set-cookie: 'XSRF-TOKEN=eyJpdiI6IlFKVE4rOXpwcC9JOEJrKzA4V0tVRnc9PSIsInZhbHVlIjoiMnZLNGlHTTIvYXdsL0ZMT3BOK0ZGekt3NUN2OEZrSy9ISi9VbDJ6dGtIdER1ZE9MVVpxbE4wVnZuWWx0WXRTMXBsS1pjVFIzREIyazJJQXhlRkVRN2lPZlVwS2pmTEdPNGtBRFFYSENJbnBkZnJyekR1UTlwOGIwNERvaDVmNzAiLCJtYWMiOiIwOGMxZjM0MmUyMDhmOTczZTRlYzMxYjk4N2I0NDBkYWZiMjRmZDVhOTY3NWVlYTE1NjgwMjk1NTRkN2NiM2M1IiwidGFnIjoiIn0%3D; expires=Thu, 01 Dec 2022 16:16:13 GMT; Max-Age=7200; path=/; samesite=lax; cherry_blossom_diner_session=eyJpdiI6InNrOGlKclZadHlNMWxtVGE5UUR5QkE9PSIsInZhbHVlIjoiTVVTTGZ4dUFubmg2bzQ3ZXAwSDVNOXdCcGNYb1dCVkNrZ290RkhTN1pnV3BvbnN1Ny9ZREhYbGtYZUN0VTdEaFZiWVlNVlFUb2UxbHFzK1lmdnMydGF0MVdTcjlJb2NDaGFzRVNvOVJGYThYdWt2aXgxQ2JFTE14K2ZZMmZ5ZDAiLCJtYWMiOiI4ZjY5Y2E0YmJiYWRkNDNhNDBmZjJiMjU2MjFmODcxMTFmYjlmM2MxY2VlZTkyZDlkODFlZWVmOGZkMDk5MWRkIiwidGFnIjoiIn0%3D; expires=Thu, 01 Dec 2022 16:16:13 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: documentation
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: |-
+        *DOCUMENTATION PAGE*
+        only the admin user can see it.
+      description: |-
+        It's our documentation page about our API's.
+        Every API endpoint is documented here.
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          set-cookie: 'XSRF-TOKEN=eyJpdiI6Ijd1Q2x5d1U1MnltSzhIV3JOaEkzbVE9PSIsInZhbHVlIjoiSCtLM3VpQUJROFhZczNaNzdHRU1ibCtWV1VCNjgvdFpVYTFYQ2VIZ0czNjh6WStwMmFYN01pTmtaUm9zcDRQbkRqMDgxSXBxMnB5ZHROajB3YUNsTFRGSUZhRjJja0t6S2JXWkFnRjNNSFBlYjlVYU92cHU4VjVwM0lkNk00TWYiLCJtYWMiOiIwMGJkMDNjMzY4NDNhYTQ3MDQyYjBmMDc0NjJkZWNkMWQ5OTE2MWNkYzhjMDQ0NzI4M2ZjMzVkZjJjMjQ3MDE3IiwidGFnIjoiIn0%3D; expires=Thu, 01 Dec 2022 16:16:13 GMT; Max-Age=7200; path=/; samesite=lax; cherry_blossom_diner_session=eyJpdiI6Inl5b2NJVks5eDkzNUtvbHZpTVlqRWc9PSIsInZhbHVlIjoiTS8venp5TGhMMmVEdXVnYTkyVEFmRTM0Z3MwdmdBNWFlOGFMaUlScWNTM252NFpqdzY1c3FkQ21IK3NQd25XOGNId3NKRnJhZm9MdDFMcTlkMHpkRmhPUktlb0VvWVVERlRwaW0wS2NUQUFldnRSSk10b2VOa1ZUaTlvcTJWMmYiLCJtYWMiOiJkOTNlZjY0YTNmMTNlNzE2MTZjNmE0OTZiZGY1MGIwYTMwM2YwOTVhMGYzNTlmODk4ZWRkNWQ0NjllZTdkZjI1IiwidGFnIjoiIn0%3D; expires=Thu, 01 Dec 2022 16:16:13 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
