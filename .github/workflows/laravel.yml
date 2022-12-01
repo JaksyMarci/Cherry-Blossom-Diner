@@ -47,4 +47,4 @@ jobs:
     - name: Grant permissions
       run: chmod -R 777 tools/php-cs-fixer
     - name: run php-cs-fixer
-      run: tools/php-cs-fixer/vendor/bin/php-cs-fixer fix -v --dry-run --stop-on-violation .
+      run: tools/php-cs-fixer/vendor/bin/php-cs-fixer fix -v --dry-run --stop-on-violation ./tests ./routes ./resources ./public ./app ./database
