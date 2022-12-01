@@ -9,7 +9,7 @@
 </head>
 <body>
 	<nav id="nav">
-        <a href="/html/"><img src="../../img/user.png"></a> 
+        <a href="/html/"><img></a> 
         <a href="/css/">Tables</a> 
         <a href="/js/">Menu</a> 
 		<form action="{{ route('logout') }}"  method="POST">
