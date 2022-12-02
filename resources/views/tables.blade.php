@@ -20,19 +20,19 @@
     </nav>
 	<p class="wide-hidden">Oh wow look at you <br> with your 22/9 or above <br> aspect ratio</p>
     <div id="myImage">
-        <a href="#" id="nm1"><span>1</span></a>
-        <a href="#" id="nm2"><span>2</span></a>
-		<a href="#" id="nm3"><span>1</span></a>
-        <a href="#" id="nm4"><span>2</span></a>
-		<a href="#" id="nm5"><span>1</span></a>
-        <a href="#" id="nm6"><span>2</span></a>
-		<a href="#" id="nm7"><span>1</span></a>
-        <a href="#" id="nm8"><span>2</span></a>
+        <a href="tables/1" id="nm1"><span>1</span></a>
+        <a href="tables/2" id="nm2"><span>2</span></a>
+		<a href="tables/3" id="nm3"><span>3</span></a>
+        <a href="tables/4" id="nm4"><span>4</span></a>
+		<a href="tables/5" id="nm5"><span>5</span></a>
+        <a href="tables/6" id="nm6"><span>6</span></a>
+		<a href="tables/7" id="nm7"><span>7</span></a>
+        <a href="tables/8" id="nm8"><span>8</span></a>
 
-		<a href="#" id="tm1"><span>2</span></a>
-		<a href="#" id="tm2"><span>2</span></a>
-		<a href="#" id="tm3"><span>2</span></a>
-		<a href="#" id="tm4"><span>2</span></a>
+		<a href="tables/9"  id="tm1"><span>1</span></a>
+		<a href="tables/10" id="tm2"><span>2</span></a>
+		<a href="tables/11" id="tm3"><span>3</span></a>
+		<a href="tables/12" id="tm4"><span>4</span></a>
     </div>
 </body>
 </html>
