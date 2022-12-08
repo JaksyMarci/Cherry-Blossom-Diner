@@ -12,7 +12,7 @@ return new class () extends Migration {
      */
     public function up()
     {
-        Schema::create('table_food', function (Blueprint $table) {
+        Schema::create('menu_table', function (Blueprint $table) {
             $table->id();
             $table->integer('amount');
             $table->timestamps();

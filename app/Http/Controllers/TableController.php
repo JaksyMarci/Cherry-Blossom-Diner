@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Tables;
+use App\Models\Menu;
 use Illuminate\Support\Facades\Auth;
 
 class TableController extends Controller
@@ -18,7 +19,8 @@ class TableController extends Controller
     {
         if (Auth::user()) {
             $table = Tables::findOrFail($id);
-            return view('menu', ['table' => $table]);
+            $menu = Menu::all();
+            return view('menu', ['table' => $table, 'menu' => $menu]);
         } else {
             abort(404);
         }

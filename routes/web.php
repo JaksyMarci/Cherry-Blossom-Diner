@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TableController;
+use App\Http\Controllers\MenuController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -36,6 +37,15 @@ Route::middleware('auth')->group(function () {
     })->name('tables');
 
     /**
+    * *Menu PAGE*
+    * only authorized user can see it.
+    * You can look through the whole menu. If you want to add an item to a table, you can do it here too.
+    */
+    Route::get('/menu', function () {
+        return redirect()->route('menu.index');
+    })->name('menu');
+
+    /**
      * *DOCUMENTATION PAGE*
      * only the admin user can see it.
      * It's our documentation page about our API's.
@@ -58,6 +68,7 @@ Route::middleware('auth')->group(function () {
     })->name('tables');
 
     Route::resource('tables', TableController::class);
+    Route::resource('menu', MenuController::class);
 });
 
 

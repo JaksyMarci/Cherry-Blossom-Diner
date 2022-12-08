@@ -11,12 +11,11 @@
         <nav id="nav">
             <a href="/html/"><img src="../../img/user.png"></a>
             <a href="{{ route('tables.index')}}">Tables</a>
-            <a href="/js/">Menu</a>
+            <a href="{{ route('menu.index')}}">Menu</a>
             <form action="{{ route('logout') }}"  method="POST">
                 @csrf
             <a href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();">Log out</a>
             </form>
-
         </nav>
         <div>
             @yield('content');
