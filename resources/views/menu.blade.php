@@ -3,45 +3,48 @@
 @section('title', isset($table) ? `Menu for table{{$table->id}}` : 'Menu')
 @section('content')
 
+
 @if(isset($table))
-    <h1>{{$table->id}}</h1>
-    <h1>{{$table->numberOfSeats}}</h1>
-    @switch ($table->state)
-        @case(0)
-            <div id="active">
-                <h1>Szabad</h1>
-            </div>
-            <div>
-                <h1>Foglalt</h1>
-            </div>
-            <div>
-                <h1>Használatban</h1>
-            </div>
+<div id="panel">
+        <div id="states">
+        @switch ($table->state)
+            @case(0)
+                <div id="left"><h1>Reserved</h1></div>
+                <div class="active"><h1>Free</h1></div>
+                <div id="right"><h1>In use</h1></div>
             @break;
-        @case(1)
-        <div>
-            <h1>Szabad</h1>
-        </div>
-        <div  id="active">
-            <h1>Foglalt</h1>
-        </div>
-        <div>
-            <h1>Használatban</h1>
-        </div>
+            @case(1)
+                <div id="left" class="active"><h1>Reserved</h1></div>
+                <div><h1>Free</h1></div>
+                <div id="right"><h1>In use</h1></div>
             @break;
-        @case(2)
-        <div>
-            <h1>Szabad</h1>
-        </div>
-        <div>
-            <h1>Foglalt</h1>
-        </div>
-        <div id="active">
-            <h1>Használatban</h1>
-        </div>
+            @case(2)
+                <div id="left"><h1>Reserved</h1></div>
+                <div><h1>Free</h1></div>
+                <div id="right" class="active"><h1>In use</h1></div>
             @break;
-    @endswitch
-@endif
+        @endswitch
+        </div>
+        <div id="data">
+            <h1>Table #{{$table->id}}</h1>
+            <h1>&#128101;{{$table->numberOfSeats}}</h1>
+        </div>
+        <div id="orderBox">
+            <h1 class="left-mid">Order</h1> 
+            <a href="/menu" class="left-mid-link"><h1>+</h1></a>
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <div id="btnHolder"><a id="backBtn" href="{{ route('tables.index')}}">&#171</a><a id="okBtn" href="#">Save</a><a id="billBtn" href="#">Bill</a></div>
+        
+</div>
+@elseif(!isset($table))
     <table>
         <thead>
             <tr>
@@ -64,4 +67,5 @@
             @endforeach
         </tbody>
     </table>
+@endif
 @endsection

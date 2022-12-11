@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <title>Tables</title>
         @vite('resources/css/tables.css')
+        @vite('resources/css/menu.css')
     </head>
     <body>
         <nav id="nav">
