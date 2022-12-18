@@ -7,7 +7,7 @@
             @if ($table->id < 9)
                 <a href="{{ route('tables.show', ['table' => $table->id]) }}" id="nm{{$table->id}}"><span>{{$table->id}}</span></a>
             @else
-                <a href="{{ route('tables.show', ['table' => $table->id]) }}" id="tm{{$table->id-8}}"><span>1</span></a>
+                <a href="{{ route('tables.show', ['table' => $table->id]) }}" id="tm{{$table->id-8}}"><span>{{$table->id}}</span></a>
             @endif
         @endforeach
     </div>

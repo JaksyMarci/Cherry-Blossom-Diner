@@ -25,8 +25,8 @@ class Tables extends Model
         return $this->belongsToMany(User::class);
     }
 
-    public function foods()
+    public function menus()
     {
-        return $this->belongsToMany(Menu::class)->withPivot('amount');
+        return $this->belongsToMany(Menu::class);
     }
 }

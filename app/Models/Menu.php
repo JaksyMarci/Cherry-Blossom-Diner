@@ -17,6 +17,6 @@ class Menu extends Model
 
     public function tables()
     {
-        return $this->belongsToMany(Tables::class)->withPivot('amount');
+        return $this->belongsToMany(Tables::class);
     }
 }

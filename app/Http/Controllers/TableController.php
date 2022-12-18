@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Tables;
 use App\Models\Menu;
+use Hamcrest\Type\IsNumeric;
 use Illuminate\Support\Facades\Auth;
 
 class TableController extends Controller
@@ -18,9 +19,9 @@ class TableController extends Controller
     public function show($id)
     {
         if (Auth::user()) {
+            $user = Auth::user();
             $table = Tables::findOrFail($id);
-            $menu = Menu::all();
-            return view('menu', ['table' => $table, 'menu' => $menu]);
+            return view('table', ['table' => $table, 'user' => $user]);
         } else {
             abort(404);
         }
@@ -84,45 +85,29 @@ class TableController extends Controller
     }
 
     // if the table is free, it will be reserved
-    public function reserve($id)
-    {
-        if (Auth::user()) {
-            $table = Tables::findOrFail($id);
-            if ($table->state == 0) {
-                $table->update([
-                    'state' => 0
-                ]);
-                return $table->show($id);
-            } else {
-                abort(404);
-            }
-        } else {
-            abort(404);
-        }
-    }
-
-    // if the table is free or reserved, it can be set in use state
-    // when the guests sit there
-    public function inUse($id)
-    {
-        if (Auth::user()) {
-            $table = Tables::findOrFail($id);
-            if ($table->state == 0 or $table->state == 1) {
-                $table->update([
-                    'state' => 2
-                ]);
-                return $table->show($id);
-            } else {
-                abort(404);
-            }
-        } else {
-            abort(404);
-        }
-    }
-
-    //updates the table
     public function update(Request $request, $id)
     {
-        // TODO: request function
+        if (Auth::user()) {
+            $table = Tables::findOrFail($id);
+            if (isset($request->state)) {
+                if ($request->state == 0 || $request->state == 1 || $request->state == 2) {
+                    $table->update([
+                        'state' => $request->state
+                    ]);
+                    return view('table', ['table' => $table]);
+                } else {
+                    abort(404);
+                }
+            }
+            $menuItemCount = count(Menu::all());
+            for ($i=0; $i<$menuItemCount; $i++) {
+                if (is_numeric($request->$i) && $request->$i > 0) {
+                    $table->menus()->attach($i, ['menu_id' => $i, 'amount' => $request->$i]);
+                }
+            }
+            return view('table', ['table' => $table]);
+        } else {
+            abort(404);
+        }
     }
 }
