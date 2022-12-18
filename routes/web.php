@@ -45,6 +45,8 @@ Route::middleware('auth')->group(function () {
         return redirect()->route('menu.index');
     })->name('menu');
 
+    Route::put('/tables/{table}', [TableController::class, 'update'])->name('tables.update');
+
     /**
      * *DOCUMENTATION PAGE*
      * only the admin user can see it.

@@ -10,7 +10,7 @@
     </head>
     <body>
         <nav id="nav">
-            <a href="/html/"><img src="../../img/user.png"></a>
+            <a>{{Auth::user()->name}}</a>
             <a href="{{ route('tables.index')}}">Tables</a>
             <a href="{{ route('menu.index')}}">Menu</a>
             <form action="{{ route('logout') }}"  method="POST">
