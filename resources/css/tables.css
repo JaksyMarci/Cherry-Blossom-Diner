@@ -2,7 +2,7 @@ body{
     background-color: #0f0f1b;
     margin: 0; 
     height: 100%; 
-    /*overflow: hidden
+    overflow: hidden/*
     background-image: url("../img/floorPlan2.png");
     background-repeat: no-repeat;
     background-size: cover;*/
@@ -83,6 +83,8 @@ nav a img{
 
 .reserved{
     background-image: repeating-linear-gradient(-45deg, transparent, Transparent 10px, rgb(242, 255, 63) 30px);
+    outline: 4px solid rgb(242, 255, 63);
+    outline-offset: -4px !important;
 }
 
 .reserved:hover{
@@ -91,17 +93,12 @@ nav a img{
 
 .taken{
     background-image: repeating-linear-gradient(-45deg, transparent, Transparent 10px, rgb(255, 63, 63) 30px);
+    outline: 4px solid rgb(255, 63, 63);
+    outline-offset: -4px !important;
 }
 
 .taken:hover{
     box-shadow: 0px 0px 30px 5px rgb(255, 63, 63) !important
-}
-
-a#nm1 {
-    top:50%; left:50%; width:24vh; height:11.9vh;
-    margin-left: -94.1vh;
-    margin-top: -43.5vh;
-    transition: 0.3s;
 }
 
 #myImage a:hover{
@@ -109,10 +106,17 @@ a#nm1 {
     transition: 0.3s;
 }
 
+a#nm1 {
+    top:50%; left:50%; width:24.4vh; height:11.9vh;
+    margin-left: -94.4vh;
+    margin-top: -43.5vh;
+    transition: 0.3s;
+}
+
 a#nm2 {
     top:50%; left:50%; width:13.7vh; height:23vh;
     margin-left: -60.4vh;
-    margin-top: 26.2vh;
+    margin-top: 26.1vh;
     transition: 0.3s;
 }
 
@@ -126,66 +130,66 @@ a#nm3 {
 a#nm4 {
     top:50%; left:50%; width:13.7vh; height:23vh;
     margin-left: -3.9vh;
-    margin-top: 26.2vh;
+    margin-top: 26.1vh;
     transition: 0.3s;
 }
 
 a#nm5 {
     top:50%; left:50%; width:13.7vh; height:23vh;
     margin-left: 24.4vh;
-    margin-top: 26.2vh;
+    margin-top: 26.1vh;
     transition: 0.3s;
 }
 
 a#nm6 {
     top:50%; left:50%; width:13.7vh; height:23vh;
     margin-left: 52.5vh;
-    margin-top: 26.2vh;
+    margin-top: 26.1vh;
     transition: 0.3s;
 }
 
 a#nm7 {
     top:50%; left:50%; width:13.7vh; height:23vh;
     margin-left: 80.8vh;
-    margin-top: 26.2vh;
+    margin-top: 26.1vh;
     transition: 0.3s;
 }
 
 a#nm8 {
-    top:50%; left:50%; width:24vh; height:11.9vh;
-    margin-left: 70.4vh;
+    top:50%; left:50%; width:24.4vh; height:11.9vh;
+    margin-left: 70.2vh;
     margin-top: -43.5vh;
     transition: 0.3s;
 }
 
 a#tm1 {
-    top:50%; left:50%; width:13.5vh; height:13.5vh;
-    margin-left: -39vh;
+    top:50%; left:50%; width:14vh; height:13.6vh;
+    margin-left: -39.2vh;
     margin-top: -4.6vh;
     transition: 0.3s;
     transform: rotate(45deg);
 }
 
 a#tm2 {
-    top:50%; left:50%; width:13.5vh; height:13.5vh;
-    margin-left: 2vh;
+    top:50%; left:50%; width:14vh; height:13.6vh;
+    margin-left: 1.65vh;
     margin-top: -4.6vh;
     transition: 0.3s;
     transform: rotate(45deg);
 }
 
 a#tm3 {
-    top:50%; left:50%; width:13.5vh; height:13.5vh;
-    margin-left: 41.2vh;
-    margin-top: -4.6vh;
+    top:50%; left:50%; width:14vh; height:13.6vh;
+    margin-left: 40.95vh;
+    margin-top: -4.4vh;
     transition: 0.3s;
     transform: rotate(45deg);
 }
 
 a#tm4 {
-    top:50%; left:50%; width:13.5vh; height:13.5vh;
-    margin-left: 78.5vh;
-    margin-top: -4.6vh;
+    top:50%; left:50%; width:14vh; height:13.6vh;
+    margin-left: 78.15vh;
+    margin-top: -4.45vh;
     transition: 0.3s;
     transform: rotate(45deg);
 }
