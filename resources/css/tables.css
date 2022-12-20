@@ -38,6 +38,7 @@ nav form a{
 nav form {
     float: right;
     line-height: 5.3vh;
+    margin: 0;
 }
 
 nav a{
@@ -78,6 +79,22 @@ nav a img{
 
 #myImage a{
     display:block; position:absolute; 
+}
+
+.reserved{
+    background-image: repeating-linear-gradient(-45deg, transparent, Transparent 10px, rgb(242, 255, 63) 30px);
+}
+
+.reserved:hover{
+    box-shadow: 0px 0px 30px 5px rgb(242, 255, 63) !important;
+}
+
+.taken{
+    background-image: repeating-linear-gradient(-45deg, transparent, Transparent 10px, rgb(255, 63, 63) 30px);
+}
+
+.taken:hover{
+    box-shadow: 0px 0px 30px 5px rgb(255, 63, 63) !important
 }
 
 a#nm1 {

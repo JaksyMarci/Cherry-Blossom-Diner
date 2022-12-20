@@ -20,8 +20,33 @@
     border-radius: 50px 0px 0px 0px;
 }
 
+
+#states form{
+    margin: 0;
+}
+
 #right{
     border-radius: 0px 50px 0px 0px;
+}
+
+#states form div button{
+    border-radius: inherit;
+    font-family: inherit;
+    margin:inherit;
+    padding: inherit;
+    background-color: inherit;
+    border: none;
+    color:inherit;
+    cursor:pointer;
+    width: 100%;
+}
+
+#noFood{
+    font-size: 2.5vh;
+    width: 100%;
+    float: left;
+    margin-top: 0;
+    margin-left: 1vw;
 }
 
 #states div{

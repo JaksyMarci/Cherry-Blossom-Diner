@@ -20,11 +20,11 @@
                 </form>
                 @break;
             @case(1)
-            <div class="active"><h1>Reserved</h1></div>
+            <div class="active" id="left"><h1>Reserved</h1></div>
             <form method="post" action="{{ route('tables.update', ['table' => $table->id]) }}" enctype="multipart/form-data"path>
                 @csrf
                 @method('put')
-                <div id="left"><button type="submit" value="0" name="state"><h1>Free</h1></button></div>
+                <div><button type="submit" value="0" name="state"><h1>Free</h1></button></div>
             </form>
             <form method="post" action="{{ route('tables.update', ['table' => $table->id]) }}">
                 @csrf
@@ -41,9 +41,9 @@
             <form method="post" action="{{ route('tables.update', ['table' => $table->id]) }}" enctype="multipart/form-data"path>
                 @csrf
                 @method('put')
-                <div id="left"><button type="submit" value="0" name="state"><h1>Free</h1></button></div>
+                <div><button type="submit" value="0" name="state"><h1>Free</h1></button></div>
             </form>
-            <div class="active"><h1>In use</h1></div>
+            <div class="active" id="right"><h1>In use</h1></div>
             @break;
         @endswitch
         </div>
@@ -56,7 +56,7 @@
             <a href="{{ route('menu.show', ['menu' => $table->id])}}" class="left-mid-link"><h1>+</h1></a>
             @if(count($table->menus) == 0)
                 <br>
-                <h1>No ordered food yet, for this table.</h1>
+                <h1 id="noFood">No food ordered to this table yet.</h1>
             @else
                 <ul>
                     @foreach ($table->menus as $food)
