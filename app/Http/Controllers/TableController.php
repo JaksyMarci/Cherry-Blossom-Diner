@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Tables;
+use App\Models\Table;
 use App\Models\Menu;
 use Hamcrest\Type\IsNumeric;
 use Illuminate\Support\Facades\Auth;
@@ -12,7 +12,7 @@ class TableController extends Controller
 {
     public function index()
     {
-        $tables = Tables::all();
+        $tables = Table::all();
         return view('tables', ['tables' => $tables]);
     }
     // returns the specified table informations to show
@@ -20,7 +20,7 @@ class TableController extends Controller
     {
         if (Auth::user()) {
             $user = Auth::user();
-            $table = Tables::findOrFail($id);
+            $table = Table::findOrFail($id);
             return view('table', ['table' => $table, 'user' => $user]);
         } else {
             abort(404);
@@ -31,7 +31,7 @@ class TableController extends Controller
     public function bill($id)
     {
         if (Auth::user()) {
-            $table = Tables::findOrFail($id);
+            $table = Table::findOrFail($id);
             $bill = 0;
             foreach ($table->foods as $food) {
                 $bill = $food->amount * $food->price;
@@ -47,7 +47,7 @@ class TableController extends Controller
     public function editOrder(Request $request, $id)
     {
         if (Auth::user()) {
-            $table = Tables::findOrFail($id);
+            $table = Table::findOrFail($id);
             $validated = $request->validate([
                 'amount' => 'required|integer'
             ]);
@@ -73,7 +73,7 @@ class TableController extends Controller
     public function pay($id)
     {
         if (Auth::user()) {
-            $table = Tables::findOrFail($id);
+            $table = Table::findOrFail($id);
             $table->update([
                 'bill' => 0,
                 'state' => 0,
@@ -88,7 +88,7 @@ class TableController extends Controller
     public function update(Request $request, $id)
     {
         if (Auth::user()) {
-            $table = Tables::findOrFail($id);
+            $table = Table::findOrFail($id);
             if (isset($request->state)) {
                 if ($request->state == 0 || $request->state == 1 || $request->state == 2) {
                     $table->update([
@@ -99,11 +99,19 @@ class TableController extends Controller
                     abort(404);
                 }
             }
+            foreach ($table->menus as $menu) {
+                $table->menus()->detach($menu->id);
+            }
             $menuItemCount = count(Menu::all());
             for ($i=0; $i<$menuItemCount; $i++) {
                 if (is_numeric($request->$i) && $request->$i > 0) {
                     $table->menus()->attach($i, ['menu_id' => $i, 'amount' => $request->$i]);
                 }
+            }
+            if ($table->state != 2) {
+                $table->update([
+                    'state' => 2
+                ]);
             }
             return view('table', ['table' => $table]);
         } else {

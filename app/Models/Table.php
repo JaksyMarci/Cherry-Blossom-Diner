@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Tables extends Model
+class Table extends Model
 {
     use HasFactory;
 
@@ -28,5 +28,11 @@ class Tables extends Model
     public function menus()
     {
         return $this->belongsToMany(Menu::class);
+    }
+
+    public function amount()
+    {
+        return $this->belongsToMany(Menu::class)
+        ->withPivot('amount')->wherePivotNotNull('amount');
     }
 }

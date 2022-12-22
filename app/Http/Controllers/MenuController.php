@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Menu;
-use App\Models\Tables;
+use App\Models\Table;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,7 +22,7 @@ class MenuController extends Controller
     public function show($id)
     {
         if (Auth::user()) {
-            $table = Tables::findOrFail($id);
+            $table = Table::findOrFail($id);
             $menu = Menu::all();
             return view('menu', ['menu' => $menu, 'table' => $table]);
         } else {
