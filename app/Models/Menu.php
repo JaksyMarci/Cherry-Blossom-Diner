@@ -17,6 +17,12 @@ class Menu extends Model
 
     public function tables()
     {
-        return $this->belongsToMany(Tables::class);
+        return $this->belongsToMany(Table::class);
+    }
+
+    public function amount()
+    {
+        return $this->belongsToMany(Table::class)
+        ->withPivot('amount')->wherePivotNotNull('amount');
     }
 }

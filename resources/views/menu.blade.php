@@ -19,38 +19,47 @@
         </thead>
         <tbody>
             @foreach ($menu as $menuItem)
-            <tr>
-                <th>{{$menuItem->food_name}}</th>
-                <th>
-                @switch($menuItem->food_type)
-                    @case(0)
-                        Soup
-                        @break
-                    @case(1)
-                        Vegetarian
-                        @break
-                    @case(2)
-                        Poultry
-                        @break
-                    @case(3)
-                        beef
-                        @break
-                    @case(4)
-                        Pork
-                        @break
-                    @case(5)
-                        Dessert
-                        @break
-                    @case(6)
-                        Drink
-                        @break
-                    @default
-                        no category
-                @endswitch
-                </th>
-                <th>{{$menuItem->food_price}}</th>
-                <th><input name="{{$menuItem->id}}" type="number" min="0" max="100"/></th>
-            </tr>
+                <tr>
+                    <th>{{$menuItem->food_name}}</th>
+                    <th>
+                    @switch($menuItem->food_type)
+                        @case(0)
+                            Soup
+                            @break
+                        @case(1)
+                            Vegetarian
+                            @break
+                        @case(2)
+                            Poultry
+                            @break
+                        @case(3)
+                            beef
+                            @break
+                        @case(4)
+                            Pork
+                            @break
+                        @case(5)
+                            Dessert
+                            @break
+                        @case(6)
+                            Drink
+                            @break
+                        @default
+                            no category
+                    @endswitch
+                    </th>
+                    <th>{{$menuItem->price}}</th>
+                    @if($menuItem->amount->count() == 0)
+                        <th><input name="{{$menuItem->id}}" type="number" min="0" max="100" value="0"/></th>
+                    @endif
+                    @foreach ($menuItem->amount as $amount)
+                        @if($amount->pivot->menu_id == $menuItem->id)
+                            <th><input name="{{$menuItem->id}}" type="number" min="0" max="100" value="{{$amount->pivot->amount}}"/></th>
+                        @else
+                            <th><input name="{{$menuItem->id}}" type="number" min="0" max="100" value="0"/></th>
+                        @endif
+                    @endforeach
+                </tr>
             @endforeach
         </tbody>
     </table>

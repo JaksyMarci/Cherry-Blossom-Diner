@@ -60,7 +60,12 @@
             @else
                 <ul>
                     @foreach ($table->menus as $food)
-                    <li>{{$food->name}}</li>
+                    {{$food->food_name}}<br>
+                        @foreach ($food->amount as $f)
+                            @if($food->id == $f->pivot->menu_id)
+                                {{$f->pivot->amount}}<br>
+                            @endif
+                        @endforeach
                     @endforeach
                 </ul>
             @endif

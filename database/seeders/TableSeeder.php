@@ -4,9 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Tables;
+use App\Models\Table;
 
-class TablesSeeder extends Seeder
+class TableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,6 +15,6 @@ class TablesSeeder extends Seeder
      */
     public function run()
     {
-        Tables::factory(12)->create();
+        Table::factory(12)->create();
     }
 }
