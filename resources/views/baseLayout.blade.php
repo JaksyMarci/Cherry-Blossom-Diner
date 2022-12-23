@@ -19,7 +19,7 @@
             </form>
         </nav>
         <div>
-            @yield('content');
+            @yield('content')
         </div>
     </body>
 </html>

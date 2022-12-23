@@ -39,13 +39,32 @@ Route::middleware('auth')->group(function () {
     /**
     * *Menu PAGE*
     * only authorized user can see it.
-    * You can look through the whole menu. If you want to add an item to a table, you can do it here too.
+    * You can look through the whole menu.
     */
     Route::get('/menu', function () {
         return redirect()->route('menu.index');
     })->name('menu');
 
+    /**
+    * *Table PAGE*
+    * only authorized user can see it.
+    * You can see the tales state all he menu items of the table. Order and pay can be done here.
+    */
     Route::put('/tables/{table}', [TableController::class, 'update'])->name('tables.update');
+
+    /**
+    * *Bill PAGE*
+    * only authorized user can see it.
+    * You can see the bill here. Her you can finish the ordering y the pay button. It clears he able and makes it free.
+    */
+    Route::get('/tables/bill/{table}', [TableController::class, 'bill'])->name('tables.bill');
+
+    /**
+    * *delete route*
+    * only authorized user can delete.
+    * Deletes thee menu items, clears he state, and the waiter name.
+    */
+    Route::delete('items/bill/{table}', [TableController::class, 'destroy'])->name('tables.destroy');
 
     /**
      * *DOCUMENTATION PAGE*
