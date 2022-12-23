@@ -3,7 +3,7 @@
 @section('title',`Bill for table{{$table->id}}`)
 @section('content')
 
-<div>
+<div id="panel" class="billPanel">
     <h1>Cherry Blossom Diner</h1>
     <h2>Bill</h2>
     <span>Table number: {{$table->id}}</span>
@@ -37,6 +37,5 @@
         @method('delete')
         <button type="submit">Pay</button>
     </form>
-    <div id="btnHolder"><a id="backBtn" href="{{ route('tables.show', ['table' => $table->id]) }}">&#171</a>
-</div>
+    <a id="backBtn" class="billBack" href="{{ route('tables.show', ['table' => $table->id]) }}">&#171</a>
 @endsection

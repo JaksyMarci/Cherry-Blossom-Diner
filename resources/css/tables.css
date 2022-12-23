@@ -22,7 +22,7 @@ nav{
     transform: translate(-50%, 0);
     margin-top: 2vh;
     background-color: #1c1c33;
-    padding: 10px;
+    padding: 15px 20px 15px 20px;
     font-family: Arial, sans-serif;
     border-radius: 50px;
 }
@@ -37,7 +37,6 @@ nav form a{
 
 nav form {
     float: right;
-    line-height: 5.3vh;
     margin: 0;
 }
 
@@ -196,4 +195,159 @@ a#tm4 {
 
 #myImage a span {
     display:none;
+}
+
+#type0{
+    background-image: url("../img/menu/0.png");
+}
+
+#type1{
+    background-image: url("../img/menu/1.png");
+}
+
+#type2{
+    background-image: url("../img/menu/2.png");
+}
+
+#type3{
+    background-image: url("../img/menu/3.png");
+}
+
+#type4{
+    background-image: url("../img/menu/4.png");
+}
+
+#type5{
+    background-image: url("../img/menu/5.png");
+}
+
+#type6{
+    background-image: url("../img/menu/6.png");
+}
+
+.menuImage{
+    background-repeat: no-repeat;
+    background-size: 10vh;
+    background-position: center;
+    max-height: 5vh;
+    border: 5px solid #0f0f1b;
+    background-color: #262646;
+}
+
+ul{
+    width: 95% !important;
+}
+
+li{
+    margin-bottom: 8vh !important;
+}
+
+li p{
+    text-align: center;
+    background-color: #262646;
+    margin-top: -6.5vh;
+    padding: 0 5px 0 05px;
+}
+
+li div{
+    position: absolute;
+    margin-top: 8vh;
+    align-items: center;
+    margin-left: -5vh;
+    font-size: 1.8vh;
+}
+
+li div p{
+    background-color: transparent;
+    margin-top: 0.5vh;
+    display: inline-block;
+}
+
+li input{
+    border-radius: 5px;
+    float: right;
+    margin-top: 0.5vh;
+    background-color: #0f0f1b;
+    color: white;
+    border: none;
+    font-size: large;
+    width: max-content;
+    margin-left: -2vh;
+    width: 40%;
+}
+
+select{
+    text-align: center;
+    border-radius: 5px;
+    background-color: #0f0f1b;
+    color: white;
+    border: none;
+    font-size: large;
+}
+
+#tableSelectBox{
+    align-items: center;
+    text-align: center;
+}
+
+.billPanel{
+    text-align: center;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+    width: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(150, 35, 150);
+    border-radius: 10px;
+    border-right: 4px #262646 solid;
+    border: 4px solid rgba(0, 0, 0, 0);
+    background-clip: padding-box;
+    border-radius: 9999px;
+}
+
+::-webkit-scrollbar-track-piece:end {
+    background: transparent;
+    margin-bottom: 5vh; 
+}
+
+::-webkit-scrollbar-track-piece:start {
+    background: transparent;
+    margin-top: 5vh;
+}
+
+.billPanel h2 table{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.billPanel span{
+    display: block;
+}
+
+.billPanel table{
+    margin-bottom: 2vh;
+}
+
+.billPanel table td{
+    padding-left: 2vh;
+    padding-right: 2vh;
+}
+
+.billPanel button{
+    background-color: #3fff9f;
+    color: white;
+    border:none;
+    margin-bottom: 3vh;
+    font-size: 4vh !important;
+    border-radius: 100px !important;
+    padding: 0vh 2vh 0.5vh 1.5vh !important;
+    transition: 0.3s;
+}
+
+.billPanel button:hover{
+    box-shadow: 0px 0px 30px 5px #9fff3f ;
 }

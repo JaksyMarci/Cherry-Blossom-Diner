@@ -129,6 +129,10 @@ li{
     border-radius: 10px;
 }
 
+.centered{
+    text-align: center;
+}
+
 li:last-child{
     background-image: linear-gradient(to right, 
         rgba(255, 255, 255, 0), 
@@ -168,6 +172,26 @@ li:last-child{
     font-size: 3vh;
 }
 
+#btnHolder button{
+    display: inline-block;
+    border-radius: 20px;
+    padding: 2vh;
+    font-family: Verdana, sans-serif;
+    font-size: 3.5vh !important;
+    color: white;
+    border: none;
+}
+
+pre{
+    text-align: center;
+    font-size: 3vh;
+    background-color: #141424dc;
+    border-radius: 999px;
+    display: inline-block;
+    margin: 0 auto;
+    padding: 0 1vh 0 1vh;
+}
+
 #backBtn{
     background-color: #1c1c33;
     font-size: 5vh !important;
@@ -191,6 +215,21 @@ li:last-child{
 
 #backBtn:active{
     box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+#orderText{
+    text-align: center;
+}
+
+#overflowList{
+    overflow: hidden;
+    overflow-y: scroll;
+    max-height: 20vh;
+    padding-top: 1vh;
+}
+
+#overflowList li{
+    margin-bottom: 3vh !important;
 }
 
 @media (min-aspect-ratio: 22/10) {

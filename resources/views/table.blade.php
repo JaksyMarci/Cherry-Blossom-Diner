@@ -36,12 +36,12 @@
             <form method="post" action="{{ route('tables.update', ['table' => $table->id]) }}" enctype="multipart/form-data"path>
                 @csrf
                 @method('put')
-                <div id="left"><button type="submit" value="1" name="state"><h1>Reserved</h1></button></div>
+                <div id="left"><button type="submit" value="1" @if(count($table->menus) != 0) @disabled(true) @endif name="state"><h1>Reserved</h1></button></div>
             </form>
             <form method="post" action="{{ route('tables.update', ['table' => $table->id]) }}" enctype="multipart/form-data"path>
                 @csrf
                 @method('put')
-                <div><button type="submit" value="0" name="state"><h1>Free</h1></button></div>
+                <div><button type="submit" value="0" @if(count($table->menus) != 0) @disabled(true) @endif name="state"><h1>Free</h1></button></div>
             </form>
             <div class="active" id="right"><h1>In use</h1></div>
             @break;
@@ -52,7 +52,7 @@
             <h1>&#128101;{{$table->numberOfSeats}}</h1>
         </div>
         @if($table->state != 0)
-            <h1>Waiter/waiterss: {{$user->getName($table->user_id)}}</h1>
+            <h1 id="noFood">Waiter/waitress: {{$user->getName($table->user_id)}}</h1>
         @endif
         <div id="orderBox">
             <h1 class="left-mid">Order</h1>
@@ -61,18 +61,20 @@
                 <br>
                 <h1 id="noFood">No food ordered to this table yet.</h1>
             @else
-                <ul>
+                <ul id="overflowList">
                     @foreach ($table->menus as $food)
-                    {{$food->food_name}}<br>
+                    <li id="type{{$food->food_type}}" class="menuImage centered">
+                    <p>{{$food->food_name}}</p>
                         @foreach ($food->amount as $f)
                             @if($food->id == $f->pivot->menu_id)
-                                {{$f->pivot->amount}}<br>
+                                <pre>{{$f->pivot->amount}}</pre>
                             @endif
                         @endforeach
+                    </li>
                     @endforeach
                 </ul>
-                <h1>Current total: {{$table->currentBill()}}$</h1>
-
+                
+                <h1 id="noFood">Current total: {{$table->currentBill()}}$</h1>
             @endif
         </div>
         <div id="btnHolder"><a id="backBtn" href="{{ route('tables.index')}}">&#171</a>
