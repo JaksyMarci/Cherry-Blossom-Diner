@@ -19,7 +19,7 @@
             @foreach ($food->amount as $f)
                 @if($food->id == $f->pivot->menu_id)
                     <tr>
-                        <td>{{$food->food_name}}</td>
+                        <td id="fdn">{{$food->food_name}}</td>
                         <td>{{$f->pivot->amount}}</td>
                         <td>{{$f->pivot->amount * $food->food_price}}$</td>
                     </tr>

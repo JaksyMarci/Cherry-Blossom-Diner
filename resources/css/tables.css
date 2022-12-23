@@ -240,6 +240,8 @@ ul{
 
 li{
     margin-bottom: 8vh !important;
+    text-align: center;
+    display: inline-block;
 }
 
 li p{
@@ -247,6 +249,15 @@ li p{
     background-color: #262646;
     margin-top: -6.5vh;
     padding: 0 5px 0 05px;
+}
+
+#fdn{
+    word-wrap: break-word;
+    max-width: 20vw !important;
+    text-align: left;
+}
+td{
+    border-bottom: 1px solid rgb(187, 47, 187);
 }
 
 li div{

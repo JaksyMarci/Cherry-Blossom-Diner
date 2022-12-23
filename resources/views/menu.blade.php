@@ -2,7 +2,7 @@
 
 @section('title', isset($table) ? `Menu for table{{$table->id}}` : 'Menu')
 @section('content')
-<div id="panel">
+<div id="panel" class="scrollable">
 @if (isset($table))
     <div id="data">
         <h1>Table #{{$table->id}}</h1>
@@ -34,9 +34,9 @@
         @endforeach
     </ul>
     @if (isset($table))
-        <div id="btnHolder"><button id="backBtn" type="submit">Order</button></div>
+        <div id="orderButtonBox"><button id="backBtn" type="submit">Order</button></div>
     @else
-        <h2 id="orderText">You can order by clicking on a table's order buttom=n</h2>
+        <h2 id="orderText">You can order by clicking on a table's order button</h2>
     @endif
     
 </form>
