@@ -15,6 +15,7 @@ class TableController extends Controller
         $tables = Table::all();
         return view('tables', ['tables' => $tables]);
     }
+
     // returns the specified table informations to show
     public function show($id)
     {
@@ -31,54 +32,9 @@ class TableController extends Controller
     public function bill($id)
     {
         if (Auth::user()) {
+            $user = Auth::user();
             $table = Table::findOrFail($id);
-            $bill = 0;
-            foreach ($table->foods as $food) {
-                $bill = $food->amount * $food->price;
-            }
-            $table->bill->update($bill);
-            return $table->bill;
-        } else {
-            abort(404);
-        }
-    }
-
-    // sends the form to the update function
-    public function editOrder(Request $request, $id)
-    {
-        if (Auth::user()) {
-            $table = Table::findOrFail($id);
-            $validated = $request->validate([
-                'amount' => 'required|integer'
-            ]);
-            $found = false;
-            $foundId = 0;
-        // TODO: update every pivot data with the right amount
-        // foreach($table->foods as $food) {
-            //     if($request->id == $food->id) {
-            //         $found = true;
-            //         $foundId = $food->id;
-            //     }
-        // }
-
-        // if($found) {
-            //     $table->foods->find($foundId)->update()
-        // }
-        } else {
-            abort(404);
-        }
-    }
-
-    // after the guest payed, the table become free, and the bill turns to 0
-    public function pay($id)
-    {
-        if (Auth::user()) {
-            $table = Table::findOrFail($id);
-            $table->update([
-                'bill' => 0,
-                'state' => 0,
-            ]);
-            return $table->show($id);
+            return view('bill', ['table' => $table]);
         } else {
             abort(404);
         }
@@ -88,13 +44,23 @@ class TableController extends Controller
     public function update(Request $request, $id)
     {
         if (Auth::user()) {
+            $user = Auth::user()->id;
             $table = Table::findOrFail($id);
             if (isset($request->state)) {
                 if ($request->state == 0 || $request->state == 1 || $request->state == 2) {
-                    $table->update([
-                        'state' => $request->state
-                    ]);
-                    return view('table', ['table' => $table]);
+                    if ($request->state == 0) {
+                        $table->update([
+                            'state' => $request->state,
+                            'user_id' => null,
+                        ]);
+                    } else {
+                        $table->update([
+                            'state' => $request->state,
+                            'user_id' => $user,
+                        ]);
+                    }
+
+                    return redirect()->route('tables.show', ['table' => $table->id, 'user' => $user]);
                 } else {
                     abort(404);
                 }
@@ -110,12 +76,27 @@ class TableController extends Controller
             }
             if ($table->state != 2) {
                 $table->update([
-                    'state' => 2
+                    'state' => 2,
+                    'user_id' => $user,
                 ]);
             }
-            return view('table', ['table' => $table]);
+            return redirect()->route('tables.show', ['table' => $table->id, 'user' => $user]);
         } else {
             abort(404);
         }
+    }
+
+    public function destroy($id)
+    {
+        $table = Table::findOrFail($id);
+        foreach ($table->menus as $menu) {
+            $table->menus()->detach($menu->id);
+        }
+        $table->update([
+            'state' => 0,
+            'user_id' => null,
+        ]);
+
+        return redirect()->route('tables.show', ['table' => $table->id]);
     }
 }

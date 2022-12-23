@@ -51,6 +51,9 @@
             <h1>Table #{{$table->id}}</h1>
             <h1>&#128101;{{$table->numberOfSeats}}</h1>
         </div>
+        @if($table->state != 0)
+            <h1>Waiter/waiterss: {{$user->getName($table->user_id)}}</h1>
+        @endif
         <div id="orderBox">
             <h1 class="left-mid">Order</h1>
             <a href="{{ route('menu.show', ['menu' => $table->id])}}" class="left-mid-link"><h1>+</h1></a>
@@ -68,8 +71,13 @@
                         @endforeach
                     @endforeach
                 </ul>
+                <h1>Current total: {{$table->currentBill()}}$</h1>
+
             @endif
         </div>
-        <div id="btnHolder"><a id="backBtn" href="{{ route('tables.index')}}">&#171</a><a id="okBtn" href="#">Save</a><a id="billBtn" href="#">Bill</a></div>
-
+        <div id="btnHolder"><a id="backBtn" href="{{ route('tables.index')}}">&#171</a>
+        @if(count($table->menus) != 0)
+            <a id="okBtn" href="#">Save</a><a id="billBtn" href="{{ route('tables.bill', ['table' => $table->id])}}">Bill</a></div>
+        @endif
 </div>
+@endsection

@@ -49,4 +49,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Tables::class);
     }
+
+    public function getName($id)
+    {
+        $user = User::findOrFail($id)->name;
+        return $user;
+    }
 }

@@ -14,14 +14,16 @@
                 <th>Food name</th>
                 <th>Type</th>
                 <th>Price</th>
-                <th>Amount</th>
+                @if (isset($table))
+                    <th>Amount</th>
+                @endif
             </tr>
         </thead>
         <tbody>
             @foreach ($menu as $menuItem)
                 <tr>
-                    <th>{{$menuItem->food_name}}</th>
-                    <th>
+                    <td>{{$menuItem->food_name}}</td>
+                    <td>
                     @switch($menuItem->food_type)
                         @case(0)
                             Soup
@@ -47,40 +49,29 @@
                         @default
                             no category
                     @endswitch
-                    </th>
-                    <th>{{$menuItem->price}}</th>
-                    @if($menuItem->amount->count() == 0)
-                        <th><input name="{{$menuItem->id}}" type="number" min="0" max="100" value="0"/></th>
-                    @endif
-                    @foreach ($menuItem->amount as $amount)
-                        @if($amount->pivot->menu_id == $menuItem->id)
-                            <th><input name="{{$menuItem->id}}" type="number" min="0" max="100" value="{{$amount->pivot->amount}}"/></th>
-                        @else
-                            <th><input name="{{$menuItem->id}}" type="number" min="0" max="100" value="0"/></th>
+                    </td>
+                    <td>{{$menuItem->price}}</td>
+                    @if (isset($table))
+                        @if($menuItem->amount->count() == 0)
+                            <td><input name="{{$menuItem->id}}" type="number" min="0" max="100" value="0"/></td>
                         @endif
-                    @endforeach
+                        @foreach ($menuItem->amount as $amount)
+                            @if($amount->pivot->menu_id == $menuItem->id && $amount->pivot->table_id == $table->id)
+                                <td><input name="{{$menuItem->id}}" type="number" min="0" max="100" value="{{$amount->pivot->amount}}"/></td>
+                            @else
+                                <td><input name="{{$menuItem->id}}" type="number" min="0" max="100" value="0"/></td>
+                            @endif
+                        @endforeach
+                    @endif
                 </tr>
             @endforeach
         </tbody>
     </table>
-    @if (!isset($table))
-    <select class="form-select" name="tableNumber">
-        <option value="x" disabled>Choose table number</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-        <option value="11">11</option>
-        <option value="12">12</option>
-    </select>
+    @if (isset($table))
+        <button type="submit">Order</button>
+    @else
+        <h1>You can order by clicking on a table's order buttom=n</h1>
     @endif
-    <button type="submit">Order</button>
 </form>
 </div>
 @endsection

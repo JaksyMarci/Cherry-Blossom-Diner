@@ -10,15 +10,10 @@ class Table extends Model
     use HasFactory;
 
     protected $fillable = [
-        'bill',
-        'is_paid',
-        'password',
-        'state'
+        'state',
+        'user_id'
     ];
 
-    protected $casts = [
-        'is_paid' => 'boolean',
-    ];
 
     public function users()
     {
@@ -34,5 +29,19 @@ class Table extends Model
     {
         return $this->belongsToMany(Menu::class)
         ->withPivot('amount')->wherePivotNotNull('amount');
+    }
+
+    public function currentBill()
+    {
+        $currentPrice = 0;
+        foreach ($this->menus as $food) {
+            foreach ($food->amount as $f) {
+                if ($food->id == $f->pivot->menu_id) {
+                    $currentPrice += $f->pivot->amount * $food->food_price;
+                }
+            }
+        }
+
+        return $currentPrice;
     }
 }
