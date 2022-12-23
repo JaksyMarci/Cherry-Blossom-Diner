@@ -22,6 +22,39 @@ class UserSeeder extends Seeder
             'is_admin' => 1
         ]);
 
-        User::factory(5)->create();
+        User::factory()->create([
+            'name' => 'John Doe',
+            'email' => 'johnDoe@cbd.hu',
+            'password' => Hash::make('password'),
+            'is_admin' => 0
+        ]);
+
+        User::factory()->create([
+            'name' => 'Robert Smith',
+            'email' => 'robertSmith@cbd.hu',
+            'password' => Hash::make('password'),
+            'is_admin' => 0
+        ]);
+
+        User::factory()->create([
+            'name' => 'Erica Clark',
+            'email' => 'ericaClark@cbd.hu',
+            'password' => Hash::make('password'),
+            'is_admin' => 0
+        ]);
+
+        User::factory()->create([
+            'name' => 'Edward Taylor',
+            'email' => 'edwardTaylor@cbd.hu',
+            'password' => Hash::make('password'),
+            'is_admin' => 0
+        ]);
+
+        User::factory()->create([
+            'name' => 'Nicole May',
+            'email' => 'nicoleMay@cbd.hu',
+            'password' => Hash::make('password'),
+            'is_admin' => 0
+        ]);
     }
 }
